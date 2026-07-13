@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1",
+  "task_id": "example-docs-check-001",
+  "intent": "Review the public documentation for broken internal links and report findings without modifying files.",
+  "scope": {
+    "targets": ["docs/", "README.md"],
+    "excluded_targets": ["private repositories", "deployment systems"]
+  },
+  "permissions": {
+    "capabilities": ["read_files", "report_findings"],
+    "approval_required": false
+  },
+  "validation": {
+    "checks": [
+      "all reported paths are inside the approved scope",
+      "no files were modified",
+      "each finding includes a reproducible reference"
+    ],
+    "independent_review": true
+  },
+  "metadata": {
+    "example_only": true
+  }
+}
